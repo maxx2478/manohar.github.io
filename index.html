@@ -26,6 +26,55 @@
 
     <!-- Import CSS: Main Stylesheet -->
     <link rel="stylesheet" href="./assets/css/main.css" />
+	
+	<style>
+	
+	#snackbar {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: #333; /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 50%; /* Center the snackbar */
+  bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+	
+	</style>
   </head>
 
   <body>
@@ -150,6 +199,13 @@
         <h1>Featured Projects</h1>
       </div>
 
+ 
+
+
+
+
+
+
       <!-- User Project #1 -->
       <div class="user-projects">
         <div class="images-right">
@@ -263,7 +319,7 @@
 
       <!-- Use Project #4 -->
       <div class="user-projects">
-        <div class="images-left">
+        <div class="images-left" style="padding-top:55px">
           <img
             alt="Valuto: Account Management System"
             src="./assets/img/idtposter.webp"
@@ -296,9 +352,11 @@
         </div>
       </div>
 	  
+
+	  
 	    <!-- User Project #5 -->
       <div class="user-projects">
-        <div class="images-right">
+        <div class="images-right" style="padding-top:55px">
           <img
             alt="master android"
             src="./assets/img/motivationposter.jpg"
@@ -329,6 +387,50 @@
           >
         </div>
       </div>
+	  
+	  
+	  
+	  	  <!-- User Project #6 -->
+      <div class="user-projects">
+        <div class="images-left" style="padding-top:55px">
+          <img
+            alt="Nirvana Sleeping Sounds"
+            src="./assets/img/nirvanaposter.jpg"
+          />
+        </div>
+        <div class="contents-right" style="text-align: center;">
+          <h2>Nirvana Sleeping Sounds</h2>
+          <div>
+            <img
+              height="600"
+              width="900"
+              src="./assets/img/nirvana.jpg"
+              
+            />
+            &nbsp;
+           
+          </div>
+          <p style="text-align: justify;">
+            I developed the Nirvana Sleeping Sounds Android app for a better sleeping audio based virtual environment
+			which causes users to get asleep faster. It includes various natural sleeping sounds. User can play 8 sounds
+			at a time out of 64 natural sounds.
+          </p>
+          <a
+            class="project-link"
+            target="_blank"
+			onclick="myFunction()"
+            >Check it out!</a
+          >
+		  
+
+<!-- The actual snackbar -->
+<div id="snackbar">Not yet published..</div>
+		  
+		  
+		  
+        </div>
+      </div>
+
 	  
 	  
 	  
@@ -378,6 +480,17 @@
         showCursor: false,
         contentType: null,
       });
+	  
+	  function myFunction() {
+  // Get the snackbar DIV
+  var x = document.getElementById("snackbar");
+
+  // Add the "show" class to DIV
+  x.className = "show";
+
+  // After 3 seconds, remove the show class from DIV
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
     </script>
     <!-- Import JS: Main Script -->
     <script src="./assets/js/main.js"></script>
